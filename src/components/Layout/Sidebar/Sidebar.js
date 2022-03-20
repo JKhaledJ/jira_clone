@@ -39,6 +39,8 @@ const Sidebar = (props) => {
               <Modal
                 showModal={showModalSearch}
                 closeModal={showMoalSearchHandler}
+                className="left-0 min-h-screen top-0 w-5/12"
+                options={{ closeButton: true }}
               >
                 <Search />
               </Modal>
@@ -56,6 +58,7 @@ const Sidebar = (props) => {
             <Modal
               showModal={showModalCreate}
               closeModal={showModalCreateHandler}
+              className="left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
             >
               <Search />
             </Modal>
