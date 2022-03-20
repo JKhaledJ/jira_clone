@@ -15,7 +15,7 @@ const Search = (props) => {
             />
           </div>
         </div>
-        <h1 className="text-left text-sm font-bold pb-4">RECENT ISSUES</h1>
+        <h1 className="text-sm font-bold pb-4">RECENT ISSUES</h1>
 
         <SearchItem />
         <SearchItem />

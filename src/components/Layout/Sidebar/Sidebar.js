@@ -5,8 +5,9 @@ import { FiSearch } from "react-icons/fi";
 import { FaReact } from "react-icons/fa";
 import { AiOutlinePlus, AiOutlineQuestionCircle } from "react-icons/ai";
 import SideBarItem from "./SideBarItem";
-import Search from "./Search/Search";
+import Search from "../Issues/Search/Search";
 import Modal from "../../../Utilities/Modal";
+import CreateIssue from "../Issues/Create/CreateIssue";
 const Sidebar = (props) => {
   const [showModalSearch, showMoalSearchHandler] = useState(false);
   const [showModalCreate, showModalCreateHandler] = useState(false);
@@ -60,7 +61,7 @@ const Sidebar = (props) => {
               closeModal={showModalCreateHandler}
               className="left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
             >
-              <Search />
+              <CreateIssue />
             </Modal>
           </div>
 
