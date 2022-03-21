@@ -20,14 +20,12 @@ const DropDown = (props) => {
   const [SelectedData, SetSelectedData] = useState(fullList[0]);
   const [initialInputData, setInitialInputData] = useState("");
   function SearchItem(event) {
-    if (initialInputData == "") return SetData(fullList);
+    if (event.target.value == "") return SetData(fullList);
     SetData(
       fullList.filter(
         (item) =>
           item.key !== SelectedData.key &&
-          item.text
-            .toLocaleLowerCase()
-            .includes(event.target.value.toLocaleLowerCase())
+          item.text.toLowerCase().includes(event.target.value.toLowerCase())
       )
     );
   }
@@ -41,10 +39,12 @@ const DropDown = (props) => {
   function selectItemHandler(item) {
     SetSelectedData(item);
     showHandler(false);
+    setInitialInputData("");
+    SetData(fullList);
   }
 
   function clearSearch() {
-    SetSelectedData(null);
+    SetSelectedData("");
     setInitialInputData("");
     SetData(fullList);
   }
@@ -109,7 +109,7 @@ const DropDown = (props) => {
             ) : (
               data.map(
                 (item) =>
-                  item !== SelectedData && (
+                  item.key !== SelectedData.key && (
                     <div
                       onClick={() => selectItemHandler(item)}
                       key={item.key}
