@@ -84,7 +84,7 @@ const DropDown = (props) => {
         </div>
         {show && (
           <div
-            className="border border-gray-100 rounded shadow-xl absolute bg-white w-full"
+            className="border border-gray-100 rounded shadow-xl absolute bg-white w-full z-50"
             ref={ref}
           >
             <div className="flex justify-between">

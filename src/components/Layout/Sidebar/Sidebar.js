@@ -59,7 +59,7 @@ const Sidebar = (props) => {
             <Modal
               showModal={showModalCreate}
               closeModal={showModalCreateHandler}
-              className="left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+              className="left-1/2 top-10 -translate-x-1/2"
             >
               <CreateIssue />
             </Modal>
