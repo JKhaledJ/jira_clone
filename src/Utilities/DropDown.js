@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { MdOutlineKeyboardArrowDown, MdFileDownloadDone } from "react-icons/md";
-import Aux from "../../Hoc/Auxiliary";
+import Aux from "../Hoc/Auxiliary";
 // import logo from "../../assets/logo.png";
 
 const DropDown = (props) => {
