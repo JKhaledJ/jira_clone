@@ -3,7 +3,7 @@ const BreadCrumb = (props) => {
   return (
     <div className="flex justify-start w-full">
       {titles.map((title, index) => (
-        <h1>
+        <h1 key={index}>
           {title}{" "}
           {titles.length - 1 !== index && <span className={"p-2"}>/</span>}
         </h1>
