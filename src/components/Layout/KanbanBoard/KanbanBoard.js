@@ -3,12 +3,13 @@ import Input from "../../../Utilities/Input";
 import { FaGithub } from "react-icons/fa";
 import Contributors from "../../../Utilities/Contributors";
 import { useState } from "react";
+import IssueContainer from "../Issues/Show/IssueContainer";
 const KanbanBoard = (props) => {
-  const [filterMyIssues, setFilterMyIssues] = useState(false);
-  const [filterIssues, setFilterIssues] = useState(false);
+  const [MyIssues, setMyIssues] = useState(false);
+  const [RecentlyIssues, setRecentlyIssues] = useState(false);
   function reset() {
-    setFilterIssues(false);
-    setFilterMyIssues(false);
+    setMyIssues(false);
+    setRecentlyIssues(false);
   }
   return (
     <div className={props.className}>
@@ -23,22 +24,22 @@ const KanbanBoard = (props) => {
         </div>
         <div className="flex gap-3 items-center">
           <Input />
-          <Contributors />
+          <Contributors className="w-9 h-9" hover={true} />
           <div
             className={`px-2 py-1 rounded cursor-pointer
-            ${filterMyIssues ? "bg-blue-200" : "over:bg-gray-200"} `}
-            onClick={() => setFilterMyIssues(!filterMyIssues)}
+            ${MyIssues ? "bg-blue-200" : "over:bg-gray-200"} `}
+            onClick={() => setMyIssues(!MyIssues)}
           >
             <h1>Only My Issues</h1>
           </div>
           <div
             className={`px-2 py-1 rounded cursor-pointer
-            ${filterIssues ? "bg-blue-200" : "over:bg-gray-200"} `}
-            onClick={() => setFilterIssues(!filterIssues)}
+            ${RecentlyIssues ? "bg-blue-200" : "over:bg-gray-200"} `}
+            onClick={() => setRecentlyIssues(!RecentlyIssues)}
           >
             <h1>Recently Updated</h1>
           </div>
-          {(filterIssues || filterMyIssues) && (
+          {(MyIssues || RecentlyIssues) && (
             <div
               className={`cursor-pointer border-l-2 pl-3`}
               onClick={() => reset()}
@@ -46,6 +47,14 @@ const KanbanBoard = (props) => {
               <h1>Clear all</h1>
             </div>
           )}
+        </div>
+
+        {/* Body section */}
+        <div className="w-full h-full mt-6 flex justify-start gap-2">
+          <IssueContainer />
+          <IssueContainer />
+          <IssueContainer />
+          <IssueContainer />
         </div>
       </div>
     </div>

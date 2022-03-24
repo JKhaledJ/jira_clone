@@ -30,7 +30,11 @@ const Contributors = (props) => {
             extra: (
               <span
                 key={imgs[2].id}
-                className="w-9 h-9 rounded-full hover:-translate-y-2 bg-gray-200 flex items-center justify-center transition-all duration-150 border-2 cursor-pointer border-white -ml-1"
+                className={`w-9 h-9 rounded-full ${
+                  props.hover && "hover:-translate-y-2"
+                } bg-gray-200 flex items-center justify-center transition-all duration-150 border-2 cursor-pointer border-white -ml-1 ${
+                  props.className
+                }`}
               >
                 +{imgs.length - 2}
               </span>
@@ -45,7 +49,11 @@ const Contributors = (props) => {
           <img
             key={img.id}
             src={img.image}
-            className="w-9 h-9 rounded-full hover:-translate-y-2 transition-all duration-150 border-2 cursor-pointer border-white -ml-1"
+            className={`w-9 h-9 rounded-full ${
+              props.hover && "hover:-translate-y-2"
+            } transition-all duration-150 border-2 cursor-pointer border-white -ml-1 ${
+              props.className
+            }`}
           />
         ) : (
           img.extra
