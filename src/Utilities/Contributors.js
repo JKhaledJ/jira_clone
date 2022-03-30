@@ -47,6 +47,7 @@ const Contributors = (props) => {
       {allImgs.map((img) =>
         img.image ? (
           <img
+            alt="image"
             key={img.id}
             src={img.image}
             className={`w-9 h-9 rounded-full ${

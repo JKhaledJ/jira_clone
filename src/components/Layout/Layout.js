@@ -6,7 +6,9 @@ const Layout = (props) => {
     <div>
       <Sidebar />
       <div className="flex ml-16 ">
-        <Navigation />
+        <div className="w-56">
+          <Navigation />
+        </div>
         <KanbanBoard className="grow" />
       </div>
     </div>

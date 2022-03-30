@@ -1,13 +1,14 @@
 import { useEffect, useRef, useState } from "react";
-import { MdOutlineKeyboardArrowDown, MdFileDownloadDone } from "react-icons/md";
+import { MdOutlineKeyboardArrowDown } from "react-icons/md";
+import { STORY, TASK } from "../Constants/Constants";
 import Aux from "../Hoc/Auxiliary";
 // import logo from "../../assets/logo.png";
 
 const DropDown = (props) => {
   const [show, showHandler] = useState(false);
   const fullList = [
-    { icon: <MdFileDownloadDone />, text: "task1", key: 1 },
-    { icon: <MdFileDownloadDone />, text: "task2", key: 2 },
+    { icon: TASK, text: "task1", key: 1 },
+    { icon: STORY, text: "task2", key: 2 },
     {
       image:
         "https://media.istockphoto.com/photos/termination-policy-guide-on-the-wooden-surface-picture-id1326062521?s=612x612",
@@ -20,7 +21,7 @@ const DropDown = (props) => {
   const [SelectedData, SetSelectedData] = useState(fullList[0]);
   const [initialInputData, setInitialInputData] = useState("");
   function SearchItem(event) {
-    if (event.target.value == "") return SetData(fullList);
+    if (event.target.value === "") return SetData(fullList);
     SetData(
       fullList.filter(
         (item) =>
@@ -61,7 +62,7 @@ const DropDown = (props) => {
       <div className="relative">
         <div
           onClick={() => showHandler(!show)}
-          className="flex justify-between border border-gray-300 bg-gray-100 rounded p-1"
+          className={`flex justify-between border border-gray-300 bg-gray-100 rounded p-1 cursor-pointer ${props.className}`}
         >
           {
             <div className="flex justify-start gap-2 px-2 items-center">
@@ -71,6 +72,7 @@ const DropDown = (props) => {
                 SelectedData.icon
               ) : (
                 <img
+                  alt="icon"
                   src={SelectedData.image}
                   className="w-5 h-5 rounded-full"
                 />
@@ -79,7 +81,7 @@ const DropDown = (props) => {
             </div>
           }
           <div className="text-xl">
-            <MdOutlineKeyboardArrowDown />
+            {props.showArrowDown && <MdOutlineKeyboardArrowDown />}
           </div>
         </div>
         {show && (
@@ -104,7 +106,7 @@ const DropDown = (props) => {
                 </p>
               )}
             </div>
-            {data.length == 0 ? (
+            {data.length === 0 ? (
               <div className="px-4 py-2 text-gray-400">No results</div>
             ) : (
               data.map(
@@ -113,12 +115,13 @@ const DropDown = (props) => {
                     <div
                       onClick={() => selectItemHandler(item)}
                       key={item.key}
-                      className="flex justify-start gap-2 px-4 py-2 items-center hover:bg-blue-300"
+                      className="flex justify-start gap-2 px-4 py-2 items-center hover:bg-blue-300 cursor-pointer"
                     >
                       {item.icon ? (
                         item.icon
                       ) : (
                         <img
+                          alt="icon"
                           src={item.image}
                           className="w-5 h-5 rounded-full"
                         />
